@@ -19,17 +19,17 @@ public class MyPostTest extends AbstractTest{
         getWebDriver().get(getPostsUrl());
     }
     @Test
-    @DisplayName("Test-case №1")
+    @DisplayName("Тест-кейс №1")
    // @Description("Check default sort at the 1st page")
     public void myPostsTest1() {
         Page myPage = new Page(getWebDriver());
         myPage.login(getUsername1(), getPassword1());
         assertTrue(myPage.checkBtnPage());
-        assertThat(myPage.getTitleFirstPostFirstPage(), is(equalTo("Post5 - The Last")));
+        assertThat(myPage.getTitleFirstPostFirstPage(), is(equalTo("Пост 5 - последний")));
     }
 
     @Test
-    @DisplayName("Test-case №2")
+    @DisplayName("Тест-кейс №2")
 
     public void myPostsTest2() {
         Page myPage = new Page(getWebDriver());
@@ -37,15 +37,15 @@ public class MyPostTest extends AbstractTest{
         assertTrue(!myPage.checkBtnNextPage());
     }
     @Test
-    @DisplayName("Test-case №3")
+    @DisplayName("Тест-кейс №3")
     public void myPostsTest3() {
         Page myPage = new Page(getWebDriver());
         myPage.login(getUsername1(), getPassword1());
         assertThat(myPage.countPosts(), is(equalTo(10)));
-        logger.error("Test-case №11 failed! Expected 10 but was 4");
+        logger.error("Тест-кейс 3 провален");
     }
     @Test
-    @DisplayName("Test-case №4")
+    @DisplayName("Тест-кейс №4")
         public void myPostsTest4() {
         Page myPage = new Page(getWebDriver());
         myPage
@@ -55,13 +55,13 @@ public class MyPostTest extends AbstractTest{
         assertThat(getWebDriver().getCurrentUrl(), is(equalTo(myPage.getUrlNextPage())));
     }
     @Test
-    @DisplayName("Test-case №5")
+    @DisplayName("Тест-кейс №5")
        public void myPostsTest5() {
         Page myPage = new Page(getWebDriver());
         myPage
                 .login(getUsername1(), getPassword1())
                 .getOrderDESC();
         assertThat(getWebDriver().getCurrentUrl(), is(equalTo(myPage.getUrlDESC())));
-        assertThat(myPage.getTitleFirstPostFirstPage(), is(equalTo("Post11 - The Last")));
+        assertThat(myPage.getTitleFirstPostFirstPage(), is(equalTo("Пост 5 последний")));
     }
 }
